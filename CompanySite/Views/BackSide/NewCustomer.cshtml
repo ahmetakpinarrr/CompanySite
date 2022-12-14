@@ -1,0 +1,255 @@
+﻿
+@{
+    ViewData["Title"] = "NewCustomer";
+    Layout = "~/Views/Shared/_LayoutBack.cshtml";
+}
+<div class="row mb-4" style="overflow:hidden;">
+    <div class="col-md-11 col-md-6 mb-md-0 mb-4" style="overflow:hidden;">
+        <div class="card" style="padding:35px;" >
+            <div class="card-header pb-0">
+                <div class="row" style="overflow:hidden;">
+                    <div class="col-lg-6 col-7" style="overflow:hidden;">
+                        <h6>Potansiyel Müşteri İlişkileri</h6>
+                        @*<p class="text-sm mb-0">
+                            <i class="fa fa-check text-info" aria-hidden="true"></i>
+                            <span class="font-weight-bold ms-1">30 done</span> this month
+                        </p>*@
+                    </div>
+                    @*<div class="col-md-11 col-5 my-auto text-end">
+                        <div class="dropdown float-lg-end pe-4">
+                            <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-ellipsis-v text-secondary"></i>
+                            </a>
+                            <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                                <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                                <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                                <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+            <div class="card-body px-0 pb-2" style="overflow:hidden;">
+                <div class="table-responsive">
+                    <table class="" id="CustomersTbl" style="width:100%;">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Müşteri Soru/Cevap </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input hidden type="text"  id="registerId" name="name" value="" />
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Ad - Soyad :</label>
+                        <input type="text" class="form-control messageCustomer" id="customerName">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Telefon :</label>
+                        <input type="text" class="form-control messageCustomer" id="customerPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">E-Posta :</label>
+                        <input type="text" class="form-control messageCustomer" id="customerMail">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Mesaj:</label>
+                        <textarea class="form-control messageCustomer" id="CustomerMessageMdl"></textarea>
+                    </div>
+                    <br />
+                    <hr />
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Konu :</label>
+                        <input style="border:solid 2px; padding:10px;" class="form-control" id="mailSubject">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Mail içeriği :</label>
+                        <textarea style="border:solid 2px; padding:10px;" class="form-control" id="AnswerText"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p id="resultMail" style="color:green;" ></p>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                <button type="button" class="btn btn-primary" onclick="SendAnswer()">Mail Gönder</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section pageFooterScript{
+
+    <script>
+        $(function () { FillGuestTable(); });
+        function FillGuestTable() {
+            
+
+            $.ajax({
+
+                url: '@Url.Action("GetCustomersNew" , "BackSide")',
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $('#CustomersTbl').DataTable(
+                        {
+                            "bDestroy": true,
+                            "responsive": true, "lengthChange": false, "autoWidth": false,
+                            "bDestroy": true,
+                            order: [[1, "desc"]],
+                            data: data.data,
+                            columns: [
+                                {
+                                    title: "-", data: 'id', 'render': function (data, row, meta) {
+                                        //console.log(meta['answered']);
+                                        if (meta['answered'] == 0) {
+                                            console.log("Sıfır");
+                                            return "<button title=\"Görüntüle ve Cevapla\" onclick=\"DetailModal(" +data+")\"  data-toggle=\"modal\" data-target=\"#exampleModal\" class=\"btn btn-warning\"><i class=\"fa fa-envelope\"></i> </button>";
+                                        } else {
+                                            return "<button class=\"btn btn-success\"> Cevaplandı </button>";
+                                        }
+
+                                    }
+                                },
+                                {
+                                    title: 'Tarih', data: 'createdDate', 'render': function (data) {
+
+                                        if (data == null) {
+                                            return "-";
+                                        } else {
+                                            return data;
+                                        }
+                                    }
+                                },
+                                { title: 'Ad', data: 'guestName' },
+                                { title: 'Soyad', data: 'guestSurname' },
+                                { title: 'E-Posta', data: 'guestEmail' },
+                                { title: 'Telefon', data: 'guestPhone' },
+                                { title: 'Mesaj', data: 'guestMessage' }
+                            ]
+                        });
+
+                }
+                , error: function (data) { }
+            });
+
+        
+        }
+
+
+        function DetailModal(value) {
+            document.getElementById('resultMail').style.display = "none";
+            var customerName = document.getElementById('customerName');
+            var customerPhone = document.getElementById('customerPhone');
+            var customerMail = document.getElementById('customerMail');
+            var CustomerMessageMdl = document.getElementById('CustomerMessageMdl');
+            var registerId = document.getElementById('registerId');
+
+            $.ajax({
+                url: '@Url.Action("GetDataCustomer" , "BackSide")',
+                type: 'GET',
+                data: { regId: value },
+                success: function (data) {
+                    if (data.success) {
+                        console.log(data);
+                        data = data.data;
+                        registerId.value = data.id;
+                        customerName.value = data.guestName + " "+ data.guestSurname;
+                        customerPhone.value = data.guestPhone;
+                        customerMail.value = data.guestEmail;
+                        CustomerMessageMdl.innerHTML = data.guestMessage;
+
+                        $('#exampleModal').modal('show');
+                    } else {
+                        swal({
+                            title: data.resText,
+                            icon: "Error",
+                            button: "Kapat",
+                        });
+                    }
+                },
+                error: function (data) {
+
+                    swal({
+                        title: data.resText,
+                        icon: "Error",
+                        button: "Kapat",
+                    });
+                }
+
+            });
+
+        }
+
+        function SendAnswer() {
+
+            var Email = {
+                Subject:  $('#mailSubject').val(),
+                MailContext:$('#AnswerText').val(),
+                MailAddress: $('#customerMail').val(),
+                RegisterId: $('#registerId').val()
+            };
+
+               $.ajax({
+                url: '@Url.Action("SentMail" , "BackSide")',
+                type: 'post',
+                data: { Email: Email },
+                success: function (data) {
+                    if (data.success) {
+                        RemoveBoxMailModal();
+                        document.getElementById('resultMail').style.display = "inherit";
+                        document.getElementById('resultMail').innerHTML = data.resText;
+                        FillGuestTable();
+                        $('#exampleModal').modal('hide');
+                    } else {
+                        document.getElementById('resultMail').style.display = "none";
+                        swal({
+                            title: data.resText,
+                            icon: "Error",
+                            button: "Kapat",
+                        });
+                    }
+
+                },
+                   error: function (data) {
+                       document.getElementById('resultMail').style.display = "none";
+                       swal({
+                           title: data.resText,
+                           icon: "Error",
+                           button: "Kapat",
+                       });
+
+                   }
+
+            });
+
+        }
+
+
+        function RemoveBoxMailModal() {
+            $('#mailSubject').val('');
+            $('#AnswerText').val('');
+            $('#customerMail').val('');
+        }
+
+
+
+    </script>
+
+
+}
+

@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewData["Title"] = "AboutUs";
+}
+
+
+
+<!--hero section start-->
+
+<section class="page-title position-relative overflow-hidden shape-1 right">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="bg-white p-md-5 p-3 d-inline-block">
+                    <h1 class="font-w-3 mb-4"><span class="text-primary font-w-5">Hakkımızda</span> </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="@Url.Action("Index","Home")"><i class="las la-home me-1"></i>Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Hakkımızda</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas-1"></canvas>
+</section>
+
+
+
+<section class="position-relative skew-shape overflow-hidden">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8 col-md-10 col-12">
+                <div class="mb-5">
+                    <h6 class="font-w-5 mb-3 position-relative py-1 px-3 text-primary rounded subtitle-effect box-shadow d-inline-block">
+                    </h6>
+                    <h2 class="mb-0"><span class="font-w-5">Hakkımızda Bilgi Sahibi Olun</span> </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                Opalfa yazılım ve teknoloji sirketi, ağırlıklı olarak E-Ticaret yazılımları, E-Ticaret çözümleri ve E- Ticaret sektörüne yönelik çalışmalar yapmak üzere kurulmuştur. Müşterilerin gereksinimlerini iyi analiz edip dijital çözümler sunmayı amaçlayan Opalfa, tüm çözümlerini son teknoloji trendleri doğrultusunda geliştirir ve kullanıma sunar. E-Ticaret sektörünün yanı sıra E-Katalog ve Görev Yönetim Yazılımları üreterek kullanıcılarına zengin ürün içeriği bulunan bir hizmet sunmayı amaçlar. Müşterilerilerin iş süreçlerini iyi analiz ederek, müşterinin istekleri dikkate alınarak özel geliştirme talepleri doğrultusunda ürünlerini şekillendirir.
+            </p>
+            <p>Genç ve dinamik kadrosuyla kendi alanında yükselen değer olarak  nitelendirebileceğiniz "Opalfa Yazlım ve Teknoloji" misyonu ve vizyonu başarılı ürün, mutlu müşteri hedefinde emin adımlarla yürümektedir.</p>
+
+            <p>Daha fazla bilgi ve tanışma için <a href="@Url.Action("Contact","Home")">buradan</a> bize ulaşabilirsiniz.</p>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="bg-primary box-shadow py-4 px-4 px-lg-8 py-lg-8 text-center rounded z-index-1" data-bg-img="~/images/bg/02.png">
+                    <div class="row justify-content-center">
+                        <div class="col-xxl-8 col-xl-10 col-lg-12">
+                            <div class="mb-5">
+                                <h6 class="font-w-5 mb-3 position-relative py-1 px-3 text-primary bg-white rounded subtitle-effect box-shadow d-inline-block">
+                                    <span>Size Bildirelim</span>
+                                </h6>
+                                <h2 class="mb-0 text-white"><span class="font-w-5">E-Posta Sistemimize Kayıt Olun</span> Yeniliklerimizden Haberdar Olun</h2>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-9">
+                                    <div class="subscribe-form text-center bg-white p-3 rounded">
+                                        @*<form id="mc-form">*@
+                                        <div class="input-group">
+                                            <input type="text" id="notificationEmail" class="form-control" placeholder="E-Posta Adresi Giriniz" aria-label="E-Posta Adresi Giriniz" required="">
+                                            <button class="btn btn-dark" onclick="NewRegisterForNotification()">Kayıt Ol</button>
+                                        </div>
+                                        @*</form>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section pageFooterScript{
+
+
+    <script>
+         function NewRegisterForNotification() {
+            if ($('#notificationEmail').val() === "" || $('#notificationEmail').val() === null) {
+                swal({
+                    title: "E-Posta adresinizi yazınız!",
+                    icon: "Error",
+                    button: "Kapat",
+                });
+            }
+            else if (!validateEmail($('#notificationEmail').val())) {
+                swal({
+                    title: "Geçersiz E-Posta adresi !",
+                    icon: "Error",
+                    button: "Kapat",
+                });
+            }
+            else {
+                const email = $('#notificationEmail').val();
+                 $.ajax({
+                     url: '@Url.Action("RegisterNotification" , "Home")',
+                     type: 'Post',
+                     data: { email  },
+                    // contentType:"application/json",
+                     success: function (data) {
+                         console.log(data);
+                         if (data.success) {
+                             swal({
+                                 title: data.resText,
+                                 icon: "success",
+                                 button: "Kapat",
+                             });
+                         } else {
+                             console.log("-",data);
+                             swal({
+                                 title: "Bir sorunla karşılaştık!",
+                                 text: data.resText,
+                                 icon: "error",
+                                 button: "Kapat",
+                             });
+                         }
+                     },
+                     error: function (data) {
+                         console.log("---",data);
+                            swal({
+                                title: "Bir sorunla karşılaştık!",
+                                text: data.resText,
+                                icon: "error",
+                                button: "Kapat",
+                            });
+                      }
+                 });
+            }
+        }
+        const validateEmail = (email) => {
+            return email.match(
+                /^(([^<>()[\]\\.,;:\s@@\"]+(\.[^<>()[\]\\.,;:\s@@\"]+)*)|(\".+\"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+        };
+    </script>
+}
+<!--blog end-->

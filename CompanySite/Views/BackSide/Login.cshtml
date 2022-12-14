@@ -1,0 +1,132 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+   
+    <link href="~/css/LoginStyle.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto" style="margin-top:7%; padding-left:20rem!important; padding-right:20rem!important;">
+        <div class="card card0 border-0">
+            <div class="row d-flex">
+                <div class="col-lg-6">
+                    <div class="card1 pb-5">
+                        <div class="row">
+                            <img src="https://i.imgur.com/CXQmsmF.png" class="logo">
+                        </div>
+                        <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                            <img src="https://i.imgur.com/uNGdWHi.png" class="image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card2 card border-0 px-4 py-5" style="margin-top:15%;">
+
+                        <div class="row px-3">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Kullanıcı Adı</h6></label>
+                            <input class="mb-4" type="text" name="userName" id="UserName" style="text-align:center;" placeholder="Kullanıcı Adı Giriniz">
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Parola</h6></label>
+                            <input type="password" name="password" id="Password" style="text-align:center;" placeholder="Parola Giriniz">
+                        </div>
+                        <div class="row px-3 mb-4">
+                            @*<div class="custom-control custom-checkbox custom-control-inline">
+                                    <input id="chk1" type="checkbox" name="chk" class="custom-control-input">
+                                    <label for="chk1" class="custom-control-label text-sm">Beni Hatırla</label>
+                                </div>*@
+                            @*<a href="#" class="ml-auto mb-0 text-sm">Parolamı unuttum</a>*@
+                        </div>
+                        <div class="row mb-3 px-3">
+                            <button type="button" class="btn btn-primary text-center" onclick="LoginProcess()">Giriş Yap</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="bg-blue py-4">
+                <div class="row px-3">
+                    <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+                    <div class="social-contact ml-4 ml-sm-auto">
+                        <span class="fa fa-facebook mr-4 text-sm"></span>
+                        <span class="fa fa-google-plus mr-4 text-sm"></span>
+                        <span class="fa fa-linkedin mr-4 text-sm"></span>
+                        <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function NullFieldControl() {
+        const userName = document.getElementById('UserName');
+        const passW = document.getElementById('Password');
+        if (userName.value.trim() === null || userName.value.trim() === "") {
+            userName.style.borderRadius = "3px";
+            userName.style.borderColor = "Red";
+            return false;
+        } else if (passW.value.trim() === null || passW.value.trim() === "") {
+            passW.style.borderRadius = "3px";
+            passW.style.borderColor = "Red";
+            return false;
+        } else {
+            passW.style.borderRadius = "";
+            passW.style.borderColor = "";
+            userName.style.borderRadius = "";
+            userName.style.borderColor = "";
+            return true;
+        }
+    }
+        function LoginProcess() {
+            const userName = document.getElementById('UserName');
+            const passW = document.getElementById('Password');
+
+            if (NullFieldControl()) {
+                 $.ajax({
+                 url: '@Url.Action("LoginProcess" , "BackSide")',
+                 type: 'Post',
+                     data: { userName: userName.value, password: passW.value },
+                  success: function (data) {
+                      console.log(data);
+                      if (data.success) {
+                          location.href='/BackSide/Index'
+                      } else {
+                          swal({
+                              title: "Bir sorunla karşılaştık!",
+                              text: data.resText,
+                              icon: "error",
+                              button: "Kapat",
+                          });
+                      }
+                    },
+                     error: function (data) {
+                        swal({
+                            title: "Bir sorunla karşılaştık!",
+                            text: data.resText,
+                            icon: "error",
+                            button: "Kapat",
+                        });
+                    }
+                });
+            }
+        }
+
+
+</script>
+

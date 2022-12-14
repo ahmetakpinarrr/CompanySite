@@ -1,0 +1,532 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+<nav id="ht-main-nav">
+    <a href="#" class="ht-nav-toggle active"><span></span></a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img class="img-fluid side-logo mb-3" src="~/images/logo.png" alt="">
+                <p class="mb-5">Stacht - Data Science & Analytics Bootstrap 5 Template Is fully responsible, Build whatever. Stacht Made With Latest Technology Bootstrap 5. Start working with an company that provide everything you need to generate awareness.</p>
+                <div class="form-info">
+                    <h4 class="title">Contact info</h4>
+                    <ul class="media-icon list-unstyled font-w-5">
+                        <li>
+                            <i class="las la-map-pin"></i>
+                            <p class="mb-0">423B, Road Wordwide Country, USA</p>
+                        </li>
+                        <li>
+                            <i class="las la-envelope-open-text"></i>  <a href="mailto:themeht23@gmail.com">themeht23@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="las la-phone-volume"></i>  <a href="tel:+912345678900">+91-234-567-8900</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="social-icons social-colored mt-5">
+                    <ul class="list-inline">
+                        <li class="mb-2 social-facebook">
+                            <a href="#"><i class="lab la-facebook-f"></i></a>
+                        </li>
+                        <li class="mb-2 social-twitter">
+                            <a href="#"><i class="lab la-twitter"></i></a>
+                        </li>
+                        <li class="mb-2 social-linkedin">
+                            <a href="#"><i class="lab la-linkedin-in"></i></a>
+                        </li>
+                        <li class="mb-2 social-gplus">
+                            <a href="#"><i class="lab la-google-plus-g"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--header end-->
+<!--hero section start-->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="newCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" style="background-color:white;" aria-label="Close">
+                    <span style="color:black;" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 col-lg-12">
+
+                    <form>
+                        <h4 style="text-align:center; font-weight:bold;">Bizimle İletişime Geçin</h4>
+
+
+                    </form>
+                    <form>
+                        <div style="display:flex; justify-content:center; flex-direction:row;">
+                            <label style="margin-right:20px;">
+                                Ad
+                                <input type="text" class="form-control" id="customerName" name="name" value="" />
+                            </label>
+                            <label>
+                                Soyad
+                                <input type="text" class="form-control" id="customerSurname" name="name" value="" />
+                            </label>
+                        </div>
+
+                        <div style="display:flex; justify-content:center; flex-direction:row;">
+                            <label style="margin-right:20px;">
+                                E-Posta
+                                <input type="text" class="form-control" id="customerEmail" name="name" value="" />
+                            </label>
+                            <label>
+                                Telefon
+                                <input type="text" class="form-control" id="customerPhone" name="customerPhone" value="" />
+                            </label>
+                        </div>
+                        <div style="display:flex; justify-content:center; flex-direction:row;">
+                            <label class="col-md-12" style="padding:0px;">
+                                Firma/Kurum Adı
+                                <input type="text" class="form-control" id="customerCompany" name="name" value="" />
+                            </label>
+                        </div>
+
+                        <div style="display:flex; justify-content:center; flex-direction:row;">
+                            <label class="col-md-12" style="padding:0px;">
+                                İlgilendiğiniz Ürün
+                                <select class="form-control" id="customerMessage">
+                                    <option value="Sadece İletişime Geçmek istiyorum">Sadece İletişime Geçmek istiyorum</option>
+                                    <option value="E-Ticaret Yazılımı hakkında bilgi almak istiyorum">E-Ticaret Yazılımı hakkında bilgi almak istiyorum</option>
+
+                                    @*<option value="value">Görev Yönetim Yazılmı</option>
+                                        <option value="value">text</option>
+                                        <option value="value">text</option>*@
+                                </select>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+                <button style="border-radius:10px;" type="button" class="btn btn-primary" onclick="NewCustomerMessage()">Bilgileri Gönder</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="hero-banner z-index-1 overflow-hidden py-8" data-bg-img="~/images/bg/04.png">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6 mb-5 mb-lg-0 position-relative text-center">
+                <!-- Image -->
+                <img class="img-fluid topBottom" src="~/images/hero/01.png" alt="">
+            </div>
+            <div class="col-12 col-lg-6">
+                <h1 class="mb-4">
+                    işinizi OPALFA ile <span class="font-w-6 px-2 text-primary text-uppercase my-2 d-inline-block" data-bg-color="rgba(0,73,208,0.05)">Büyütün</span>
+                </h1>
+                <p class="lead mb-5 text-grey">
+                    Tüm iş süreçlerinizde sizinle birlikteyiz.
+                </p>
+                <!-- Buttons --> <a href="#" class="btn btn-dark me-2" data-toggle="modal" onclick="RemoveFieldsModal()" data-target="#newCustomerModal">
+                    İletişime Geçin
+                </a>
+                @*<a href="#" class="btn btn-white ">
+                        Learn More
+                    </a>*@
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--hero section end-->
+<!--body content start-->
+<!--services start-->
+
+<section class="overflow-hidden position-relative pb-5">
+    <div class="container-fluid px-lg-10">
+        <div class="row justify-content-center text-center">
+            <div class="col-12 col-lg-8">
+                <div class="mb-5">
+                    <h6 class="font-w-5 mb-3 position-relative py-1 px-3 text-primary rounded subtitle-effect box-shadow d-inline-block bg-white">
+                        <span>Hizmetler</span>
+                    </h6>
+                    <h2 class="mb-0"><span class="font-w-5 d-block">Ürünlerimiz ve Çözümlerimiz İle</span> Tüm iş süreçlerinizde Yanınızdayız</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="owl-carousel" data-items="4" data-xxl-items="3" data-xl-items="2" data-lg-items="2" data-md-items="2" data-sm-items="1" data-autoplay="true">
+                    <div class="item">
+                        <div class="featured-item mx-4 text-center overflow-hidden p-5 bg-white rounded">
+                            <div class="featured-icon w-auto h-auto">
+                                <img class="img-fluid" src="~/images/services/01.png" alt="">
+                            </div>
+                            <div class="featured-desc mt-4">
+                                <h5 class="mb-3">Gerçek zamanlı trafik bilgilendirmesi</h5>
+                                <p class="mb-0">Ürünlerimiz, müşterilerimizin kendi işlerini kolay takip edebilmesi yönelik nitelikler içerir.</p>
+                                <!--<a class="btn-link mt-4" href="data-science.html">-->
+                                    @*<i class="las la-long-arrow-alt-right"></i>*@
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="featured-item mx-4 text-center overflow-hidden p-5 bg-white rounded mt-5">
+                            <div class="featured-icon w-auto h-auto">
+                                <img class="img-fluid" src="~/images/services/02.png" alt="">
+                            </div>
+                            <div class="featured-desc mt-4">
+                                <h5 class="mb-3">Gelişmiş Altyapı ve Esneklik</h5>
+                                <p class="mb-0">İşlerinizin yolunda gitmesi ve hızlanması için beraber çalışalım.</p>
+                                <!--<a class="btn-link mt-4" href="data-visualization.html">-->
+                                @*<i class="las la-long-arrow-alt-right"></i>*@
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="featured-item mx-4 text-center overflow-hidden p-5 bg-white rounded">
+                            <div class="featured-icon w-auto h-auto">
+                                <img class="img-fluid" src="~/images/services/03.png" alt="">
+                            </div>
+                            <div class="featured-desc mt-4">
+                                <h5 class="mb-3">Mutlu Müşteri İlkesi</h5>
+                                <p class="mb-0">Benzersiz ve gereksinimlere yönelik geliştirilen ürünler ile trendleri, zaman ve para kaybetmeden yakalayın.</p> 
+                                <!--<a class="btn-link mt-4" href="computer-vision.html">-->
+                                @*<i class="las la-long-arrow-alt-right"></i>*@
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="featured-item mx-4 text-center overflow-hidden p-5 bg-white rounded mt-5">
+                            <div class="featured-icon w-auto h-auto">
+                                <img class="img-fluid" src="~/images/services/04.png" alt="">
+                            </div>
+                            <div class="featured-desc mt-4">
+                                <h5 class="mb-3">İş Sürecine Uygun Geliştirmeler</h5>
+                                <p class="mb-0">Ürünlerimizi iş süreçlerinize göre şekillendiriyor, size özel geliştirmeler yapıyoruz.</p>
+                                <!--<a class="btn-link mt-4" href="machine-learning.html">-->
+                                @*<i class="las la-long-arrow-alt-right"></i>*@
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="featured-item mx-4 text-center overflow-hidden p-5 bg-white rounded">
+                            <div class="featured-icon w-auto h-auto">
+                                <img class="img-fluid" src="~/images/services/05.png" alt="">
+                            </div>
+                            <div class="featured-desc mt-4">
+                                <h5 class="mb-3">7/24 Destek</h5>
+                                <p class="mb-0">7/24 Uzman ekibimiz işinizi takip etsin.</p> 
+                                <!--<a class="btn-link mt-4" href="machine-learning.html">-->
+                                @*<i class="las la-long-arrow-alt-right"></i>*@
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--services end-->
+<!--who we are start-->
+
+<section class="bg-dark custom-pt-1 pb-10 z-index-1 shape-sec">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-12 col-lg-6 mb-6 mb-lg-0">
+                <img class="img-fluid topBottom" src="~/images/about/02.png" alt="">
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="mb-3">
+                    <h6 class="font-w-5 mb-3 position-relative py-1 px-3 text-white rounded subtitle-effect box-shadow bg-primary d-inline-block">
+                        <span>Size Özel</span>
+                    </h6>
+                    <h2 class="mb-0 text-white"><span class="font-w-5">Analitik çözümlerimiz ile </span> Altyapınızı Güçlendirin</h2>
+                </div>
+                <p class="lead mb-4 text-light">Size özel en uygun altyapıyı, en güncel teknolijileri kullanarak güçlendiriyoruz.</p>
+                @*<div class="ht-progress-bar mb-3">
+                        <h4>Data Consulting</h4>
+                        <div class="skillbar" data-percent="74">
+                            <p class="skillbar-bar"></p> <span class="skill-bar-percent"></span>
+                        </div>
+                    </div>
+                    <div class="ht-progress-bar mb-3">
+                        <h4>Big Data</h4>
+                        <div class="skillbar" data-percent="66">
+                            <p class="skillbar-bar"></p> <span class="skill-bar-percent"></span>
+                        </div>
+                    </div>
+                    <div class="ht-progress-bar">
+                        <h4>Predictive Analysis</h4>
+                        <div class="skillbar" data-percent="82">
+                            <p class="skillbar-bar"></p> <span class="skill-bar-percent"></span>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <div class="curve-shape top-0 overflow-hidden" style="height: 200px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" class="w-100 h-100"><path fill="#fff" fill-opacity="1" d="M0,192L24,202.7C48,213,96,235,144,224C192,213,240,171,288,144C336,117,384,107,432,133.3C480,160,528,224,576,218.7C624,213,672,139,720,122.7C768,107,816,149,864,144C912,139,960,85,1008,80C1056,75,1104,117,1152,160C1200,203,1248,245,1296,224C1344,203,1392,117,1416,74.7L1440,32L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"></path></svg>
+    </div>
+</section>
+
+<!--who we are end-->
+<!--counter start-->
+
+<section class="pt-0 pb-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-10 col-xl-12">
+                <div class="box-shadow p-5 bg-white rounded mt-n7 z-index-1">
+
+                    <div class="row">
+                        <div class="col-12 col-lg-3 col-sm-6">
+                            <div class="counter d-flex align-items-center style-2">
+                                <div class="me-3 flex-shrink-0">
+                                    <img class="img-fluid" src="~/images/icon/counter/01.png" alt="">
+                                </div>
+                                <div class="counter-desc flex-grow-1 text-dark">
+                                    <span class="count-number h2" data-to="15" data-speed="1000">15</span>
+                                    <span class="h2">+</span>
+                                    <h6 class="text-grey mb-0 font-w-5">Teslim edilen Proje</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-sm-6 mt-5 mt-sm-0">
+                            <div class="counter d-flex align-items-center style-2">
+                                <div class="me-3 flex-shrink-0">
+                                    <img class="img-fluid" src="~/images/icon/counter/02.png" alt="">
+                                </div>
+                                <div class="counter-desc flex-grow-1 text-dark">
+                                    <span class="count-number h2" data-to="27" data-speed="1000">27</span>
+                                    <span class="h2">+</span>
+                                    <h6 class="text-grey mb-0 font-w-5">İş Verisi Analizi</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-sm-6 mt-5 mt-lg-0">
+                            <div class="counter d-flex align-items-center style-2">
+                                <div class="me-3 flex-shrink-0">
+                                    <img class="img-fluid" src="~/images/icon/counter/03.png" alt="">
+                                </div>
+                                <div class="counter-desc flex-grow-1 text-dark">
+                                    <span class="count-number h2" data-to="32" data-speed="1000">32</span>
+                                    <span class="h2">+</span>
+                                    <h6 class="text-grey mb-0 font-w-5">Mutlu işyeri Sahibi</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-sm-6 mt-5 mt-lg-0">
+                            <div class="counter d-flex align-items-center style-2">
+                                <div class="me-3 flex-shrink-0">
+                                    <img class="img-fluid" src="~/images/icon/counter/04.png" alt="">
+                                </div>
+                                <div class="counter-desc flex-grow-1 text-dark">
+                                    <span class="count-number h2" data-to="53" data-speed="1000">53</span>
+                                    <span class="h2">+</span>
+                                    <h6 class="text-grey mb-0 font-w-5">Mutlu Müşteri</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="bg-primary box-shadow py-4 px-4 px-lg-8 py-lg-8 text-center rounded z-index-1" data-bg-img="~/images/bg/02.png">
+                    <div class="row justify-content-center">
+                        <div class="col-xxl-8 col-xl-10 col-lg-12">
+                            <div class="mb-5">
+                                <h6 class="font-w-5 mb-3 position-relative py-1 px-3 text-primary bg-white rounded subtitle-effect box-shadow d-inline-block">
+                                    <span>Size Bildirelim</span>
+                                </h6>
+                                <h2 class="mb-0 text-white"><span class="font-w-5">E-Posta Sistemimize Kayıt Olun</span> Yeniliklerimizden Haberdar Olun</h2>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-9">
+                                    <div class="subscribe-form text-center bg-white p-3 rounded">
+                                        @*<form id="mc-form">*@
+                                        <div class="input-group">
+                                            <input type="email" class="form-control" id="notificationEmail" placeholder="E-Posta Adresi Giriniz" aria-label="E-Posta Adresi Giriniz" required="">
+                                            <button class="btn btn-dark" id="RegBTN" onclick="NewRegisterForNotification()">Kayıt Ol</button>
+                                        </div>
+                                        @*</form>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--newsletter end-->
+<!--body content end-->
+
+
+@section pageFooterScript{
+
+    <script>
+        function NewRegisterForNotification() {
+            const email = $('#notificationEmail').val();
+            console.log(email);
+            if ($('#notificationEmail').val() === "" || $('#notificationEmail').val() === null) {
+                swal({
+                    title: "E-Posta adresinizi yazınız!",
+                    icon: "Error",
+                    button: "Kapat",
+                });
+            } else if (!validateEmail($('#notificationEmail').val())) {
+                swal({
+                    title: "Geçersiz E-Posta adresi !",
+                    icon: "Error",
+                    button: "Kapat",
+                });
+            }
+            else {
+             $.ajax({
+                 url: '@Url.Action("RegisterNotification" , "Home")',
+                 type: 'Post',
+                 data: { email  },
+                // contentType:"application/json",
+                 success: function (data) {
+                     console.log(data);
+                     if (data.success) {
+                         swal({
+                             title: data.resText,
+                             icon: "success",
+                             button: "Kapat",
+                         });
+                     } else {
+                         swal({
+                             title: "Bir sorunla karşılaştık!",
+                             text: data.resText,
+                             icon: "error",
+                             button: "Kapat",
+                         });
+                     }
+                    },
+                    error: function (data) {
+                        swal({
+                            title: "Bir sorunla karşılaştık!",
+                            text: data.resText,
+                            icon: "error",
+                            button: "Kapat",
+                        });
+                 },
+                 done: function (data) {
+                     console.log(data);
+                 }
+             });
+            }
+        }
+
+        function NewCustomerMessage() {
+
+             if (($('#customerEmail').val() === "" || $('#customerEmail').val() === null) || $('#customerPhone').val() === "" || $('#customerPhone').val() === null) {
+                 swal({
+                    title: "Bir sorunla karşılaştık!",
+                    text: "Lütfen E-Posta veya Telefon numaranızı giriniz!",
+                    icon: "error",
+                    button: "Kapat",
+                });
+            } else {
+                var newCustomer = {
+                    GuestName: $('#customerName').val(),
+                    GuestSurname: $('#customerSurname').val(),
+                    GuestEmail: $('#customerEmail').val(),
+                    GuestPhone: $('#customerPhone').val(),
+                    GuestMessage: $('#customerCompany').val() + " - " + $('#customerMessage').val()
+                 };
+
+                 console.log(newCustomer);
+                 $.ajax({
+                 url: '@Url.Action("NewCustomerProcess" , "Home")',
+                 type: 'Post',
+                 data: { newCustomer: newCustomer  },
+                // contentType:"application/json",
+                 success: function (data) {
+                     if (data.success) {
+                         $("#newCustomerModal").removeClass("in");
+                         $(".modal-backdrop").remove();
+                         $('body').removeClass('modal-open');
+                         $('body').css('padding-right', '');
+                         $("#newCustomerModal").hide();
+
+
+                         swal({
+                             title: data.resText + " En kısa sürede sizinle iletişime geçeceğiz.",
+                             icon: "success",
+                             button: "Kapat",
+                         });
+
+                     } else {
+                         swal({
+                             title: "Bir sorunla karşılaştık!",
+                             text: data.resText,
+                             icon: "error",
+                             button: "Kapat",
+                         });
+                     }
+                    },
+                    error: function (data) {
+                        swal({
+                            title: "Bir sorunla karşılaştık!",
+                            text: data.resText,
+                            icon: "error",
+                            button: "Kapat",
+                        });
+                    }
+             });
+            }
+        }
+        function RemoveFieldsModal() {
+            $('#customerName').val('');
+            $('#customerSurname').val('');
+            $('#customerEmail').val('');
+            $('#customerPhone').val('');
+            $('#customerCompany').val('');
+        }
+        const validateEmail = (email) => {
+            return email.match(
+                /^(([^<>()[\]\\.,;:\s@@\"]+(\.[^<>()[\]\\.,;:\s@@\"]+)*)|(\".+\"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+        };
+
+        $('input[name="customerPhone"]').keyup(function (e) {
+            if (/\D/g.test(this.value)) {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+            }
+        });
+
+    </script>
+
+
+}

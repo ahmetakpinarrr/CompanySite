@@ -1,0 +1,652 @@
+﻿
+@{
+    ViewData["Title"] = "Packages";
+}
+
+
+
+<!--hero section start-->
+
+<section class="page-title position-relative overflow-hidden shape-1 right">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="bg-white p-md-5 p-3 d-inline-block">
+                    <h1 class="font-w-3 mb-4"><span class="text-primary font-w-5">E-Ticaret</span> Paketleri</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="@Url.Action("Index","Home")"><i class="las la-home me-1"></i>Anasayfa</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">E-Ticaret Paketleri</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas-1"></canvas>
+</section>
+
+<!--hero section end-->
+<!--body content start-->
+<!--price table start-->
+
+<section class="shape-1 right position-relative">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="price-table rounded bg-white box-shadow">
+                    <div class="price-title ps-5">Lite</div>
+                    <div class="price-value my-5 ps-5 d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0 me-3 text-primary">5.500 ₺</h4>  <span class="bg-primary px-3 py-2 rounded-start text-white">Taksit imkanı</span>
+                    </div>
+                    <div class="price-list ps-5">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">Responsive Hazır Temalar</li>
+                            <li class="mb-3">Üyeliksiz Alışveriş</li>
+                            <li class="mb-3">Sınırsız Ürün Yükleme</li>
+                            <li class="mb-3">Whatsup Destek Özelliği</li>
+                            <li class="mb-3">Sınırsız Kategori Ekleme</li>
+                            <li class="mb-3">Toplu Ürün Yükleme</li>
+                            <li class="mb-3">Ürünlerin Excel Çıktısını Alma</li>
+                            <li class="mb-3">7/24 Destek</li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-dark mt-5 ms-5" href="#detailPackagesTemp" onclick="ShowDetailPackages()">
+                        <span>Ayrıntılı İncele</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="price-table rounded bg-dark">
+                    <div class="price-title ps-5 text-white">Plus</div>
+                    <div class="price-value my-5 ps-5 d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0 me-3 text-white">9.500 ₺</h4>  <span class="bg-primary px-3 py-2 rounded-start text-white">Taksit imkanı</span>
+                    </div>
+                    <div class="price-list ps-5">
+                        <ul class="list-unstyled text-white">
+                            <li class="mb-3">Özel Konsept Temalar</li>
+                            <li class="mb-3">Ücretsiz Yedekleme</li>
+                            <li class="mb-3">Sipariş Yönetimi</li>
+                            <li class="mb-3">Sınırsız Kategori Ekleme</li>
+                            <li class="mb-3">Sipariş Yönetimi</li>
+                            <li class="mb-3">Blog Yönetimi</li>
+                            <li class="mb-3">Stok Habercisi</li>
+                            <li class="mb-3">Pazaryeri Sipariş Entegrasyonu</li>
+                            <li class="mb-3">7/24 Destek</li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-dark mt-5 ms-5" href="#detailPackagesTemp" onclick=" ShowDetailPackages()">
+                        <span>Ayrıntılı İncele</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
+                <div class="price-table rounded bg-white box-shadow">
+                    <div class="price-title ps-5">Premium Plus </div>
+                    <div class="price-value my-5 ps-5 d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0 me-3 text-primary">13.500 ₺</h4>   <span class="bg-primary px-3 py-2 rounded-start text-white">Taksit imkanı</span>
+                    </div>
+                    <div class="price-list ps-5">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">Özel Geliştirme</li>
+                            <li class="mb-3">Detaylı Sipariş Yönetimi</li>
+                            <li class="mb-3">Pazaryeri Entegrasyonu</li>
+                            <li class="mb-3">Özel Konsept Tema</li>
+                            <li class="mb-3">Sınırsız Web Alanı</li>
+                            <li class="mb-3">Kurumsal Mail</li>
+                            <li class="mb-3">Mobil Uygulama</li>
+                            <li class="mb-3">Müşteri Bilgilendirme Modülü</li>
+                            <li class="mb-3">7/24 Destek</li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-dark mt-5 ms-5" href="#detailPackagesTemp" onclick="ShowDetailPackages()">
+                        <span>Ayrıntılı İncele</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--price table end-->
+<!--price table start-->
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="detailPackagesTemp">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section style="display:none;" id="detailPackages">
+    <div class="container">
+        <h3 style="text-align:center;">Paket Özellikleri</h3>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col"></th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">Web Alanı - Database Alanı</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th> Özel Konsept Temalar </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th> Kurumsal mail E-Posta hesabı </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Ücretsiz Yedekleme</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Ücretsiz Yedekleme</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Ticket Yönetim Sistemi</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Excel İle Ürün Yükleme</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Sınırsız ürün ekleme ve güncelleme</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Toplu Ürün Güncelleme</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Varyantlara Farklı Fiyat Verebilme</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Sınırsız Kategori Ekleme</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Sipariş Yönetimi</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Manuel Sipariş Ekleyebilme </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>E-fatura & E-arşiv Entegrasyonları</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Sanal POS & Ödeme Sistemleri Entegrasyonu</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Kargo Entegrasyonları</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Mobil uyumlu tasarım (responsive)</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+
+
+                            <tr>
+                                <th>Anasaysa banner yönetimi</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Blog yönetimi</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Sayfa yönetimi</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Menü yönetimi</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Üyeliksiz alışveriş</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>İnstagram /katalog shop</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Ticket / telefon ile destek</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>İndirim Kupon yönetimi</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Sosyal medya paylaşım modülü</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Özelleştirilmiş tema</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Mobil uygulama</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Log sistemi</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col">Ürün İçerik Yönetimi</th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">Sınırsız ürün ekleme ve güncelleme</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th> Özelleştirilmiş filtreleme </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Ürün detay sayfası indirim oranı </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Ürün detay telefon&Whatsup ayarları </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Ürün bazlı satış takibi </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Toplu ürün excel çıktısı </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col">SİPARİŞ YÖNETİMİ</th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">Whatsup ile sipariş</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Sipariş öazlliklerine göre filtre uygulama </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Müşteri sipariş bildirim yönetimi </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Sipariş takip sistemi </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col">KARGO AYARLARI VE YÖNETİMİ</th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">Kargo firmaları ile entegrasyon</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Kargo etiketi düzenleme ve yazdırma </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Standart kargo fiyatlandırma </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Ücretsiz kargo tanımlama</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col">ÖDEME YÖNETİMİ / SANALPOS ENTEGRASYON</th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">İYZİCO ile entegrasyon</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>PAYTR ile entegrasyon </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col">RAPORLAR</th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">GÜNLÜK / HAFTALIK / AYLIK rapor çıktısı</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Sipariş Raporları</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Ürün Raporları</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Kategori Raporları</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Kullanıcı Raporları</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col">SEO YÖNETİMİ</th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">Seo çalışması</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col">ENTEGRASYON YÖNETİMİ</th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">Pazaryeri sipariş entegrasyonu (Trendyol / Hepsiburada / N11)</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>Pazaryeri Ürün entegrasyonu (Trendyol / Hepsiburada / N11)</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>XML entegrasyonu</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>XML çıktısı</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                            <tr>
+                                <th>GOOGLE analiytics entegrasyon</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col">ÖZEL GELİŞTİRME</th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">Firmaya özel modül geliştirme</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead>
+                            <tr style="background-color:#2e2d2d; color:white">
+                                <th scope="col">Ek hizmet</th>
+                                <th scope="col">Lite</th>
+                                <th scope="col">Plus</th>
+                                <th scope="col">Premium Plus</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="width:65%;">Ürün görsellerin profesyonel çekimi</th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                                <th> <i class="fa fa-check" style="color:green;" aria-hidden="true"></i> </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--price table end-->
+
+
+@section pageFooterScript{
+
+    <script>
+        function ShowDetailPackages() {
+            document.getElementById('detailPackages').style.display = "inherit";
+        }
+    </script>
+
+
+}

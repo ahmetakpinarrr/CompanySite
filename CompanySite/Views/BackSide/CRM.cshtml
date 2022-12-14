@@ -1,0 +1,347 @@
+﻿
+@{
+    ViewData["Title"] = "CRM";
+    Layout = "~/Views/Shared/_LayoutBack.cshtml";
+}
+
+
+
+@*New customer*@
+
+<div class="modal fade bd-example-modal-lg" id="newCustomerAddModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="text-align:center; margin:auto;">Yeni Müşteri Ekleme</h5>
+            </div>
+            <div class="modal-body" style="margin:30px;">
+                <div class="col-md-12" style="display:flex; flex-direction:row; justify-content:center; ">
+                    <div class="col-md-6" style="margin:10px;">
+                        <label for="recipient-name" class="col-form-label">Ünvan </label>
+                        <input type="text" class="form-control inputsCustomer" id="customerTitle">
+                    </div>
+                    <div class="col-md-6" style="margin:10px;">
+                        <label for="message-text" class="col-form-label">Görüşülen Kişi</label>
+                        <input class="form-control inputsCustomer" id="customerOfficial">
+                    </div>
+                </div>
+                <div class="col-md-12" style="display:flex; flex-direction:row; justify-content:center;">
+
+                    <div class="col-md-6" style="margin:10px;">
+                        <label for="recipient-name" class="col-form-label">Sektör</label>
+                        <input type="text" class="form-control inputsCustomer" id="customerJobType">
+                    </div>
+                    <div class="col-md-6" style="margin:10px;">
+                        <label for="message-text" class="col-form-label">Web Sitesi</label>
+                        <input class="form-control inputsCustomer" id="customerWebSite">
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-12" style="display:flex; flex-direction:row; justify-content:center;">
+                    <div class="col-md-6" style="margin:10px;">
+                        <label for="recipient-name" class="col-form-label">E-Posta :</label>
+                        <input type="text" class="form-control inputsCustomer" id="customerMail">
+                    </div>
+                    <div class="col-md-6" style="margin:10px;">
+                        <label for="message-text" class="col-form-label">Telefon</label>
+                        <input class="form-control inputsCustomer" id="customerPhone">
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Açıklama :</label>
+                        <textarea style="border:solid 2px; padding:10px;" class="form-control" id="customerDescription"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12">
+
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label"> Adres : </label>
+                        <textarea style="border:solid 2px; padding:10px;" class="form-control" id="customerAddress"></textarea>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalCloseBTN">Kapat</button>
+                <button type="button" class="btn btn-primary" onclick="AddNewCustomer()">Ekle</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-xl-3 mb-xl-0 mb-4">
+        <div class="card bg-transparent shadow-xl">
+            <div class="overflow-hidden position-relative border-radius-xl">
+
+                <span class="mask bg-gradient-dark opacity-10"></span>
+                <div class="card-body position-relative z-index-1 p-3">
+                    <h5 class="text-white mt-4 mb-5 pb-2">Potansiyel Müşteriler</h5>
+                    <div class="d-flex">
+                        <div class="d-flex">
+                            <div class="me-4">
+                                <h4 class="text-white mb-0" id="totalPotantialCustomer" >0</h4>
+                            </div>
+                        </div>
+                        <div class="ms-auto w-20 d-flex align-items-end justify-content-end">
+                            <button type="button" style="margin: 10px; border-radius: 10px; border: solid 1px #43a047;" class="nav-link text-white active bg-gradient-success" data-toggle="modal" data-target=".bd-example-modal-lg" onclick=""><i class="fa fa-plus" aria-hidden="true"></i></button>
+       
+                            <button type="button" style="margin: 10px; border-radius: 10px; border: solid #d81b60 1px;"  class="nav-link text-white active bg-gradient-primary" data-toggle="modal" data-target=".bd-example-modal-lg" onclick=""><i class="fa fa-eye" aria-hidden="true"></i></button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 mb-xl-0 mb-4">
+        <div class="card bg-transparent shadow-xl">
+            <div class="overflow-hidden position-relative border-radius-xl">
+
+                <span class="mask bg-gradient-dark opacity-10"></span>
+                <div class="card-body position-relative z-index-1 p-3">
+                    <h5 class="text-white mt-4 mb-5 pb-2">Potansiyel Müşteriler - test</h5>
+                    <div class="d-flex">
+                        <div class="d-flex">
+                            <div class="me-4">
+                                <h4 class="text-white mb-0">53</h4>
+                            </div>
+                        </div>
+                        <div class="ms-auto w-20 d-flex align-items-end justify-content-end">
+
+
+                            <button type="button" style="margin: 10px; border-radius: 10px; border: solid #d81b60 1px;" class="nav-link text-white active bg-gradient-primary" data-toggle="modal" data-target=".bd-example-modal-lg" onclick=""><i class="fa fa-eye" aria-hidden="true"></i></button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 mb-xl-0 mb-4">
+        <div class="card bg-transparent shadow-xl">
+            <div class="overflow-hidden position-relative border-radius-xl">
+
+                <span class="mask bg-gradient-dark opacity-10"></span>
+                <div class="card-body position-relative z-index-1 p-3">
+                    <h5 class="text-white mt-4 mb-5 pb-2">Potansiyel Müşteriler - test</h5>
+                    <div class="d-flex">
+                        <div class="d-flex">
+                            <div class="me-4">
+                                <h4 class="text-white mb-0">53</h4>
+                            </div>
+                        </div>
+                        <div class="ms-auto w-20 d-flex align-items-end justify-content-end">
+
+                            <button type="button" style="margin: 10px; border-radius: 10px; border: solid #d81b60 1px;" class="nav-link text-white active bg-gradient-primary" data-toggle="modal" data-target=".bd-example-modal-lg" onclick=""><i class="fa fa-eye" aria-hidden="true"></i></button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="row">
+    <div class="col-md-3 mt-4">
+        <div class="card">
+            <div class="card-header pb-0 px-3">
+                <h6 class="mb-0"> Eklenen Müşteriler</h6>
+            </div>
+            <div class="card-body pt-4 p-3" style="max-height:1000px; overflow-y:auto;">
+                <ul class="list-group" id="AddedCustList">
+                   
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mt-4">
+        <div class="card">
+            <div class="card-header pb-0 px-3">
+                <h6 class="mb-0">Ön Görüşme</h6>
+            </div>
+            <div class="card-body pt-4 p-3">
+                <ul class="list-group">
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mt-4">
+        <div class="card">
+            <div class="card-header pb-0 px-3">
+                <h6 class="mb-0">Sunum</h6>
+            </div>
+            <div class="card-body pt-4 p-3">
+                <ul class="list-group">
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mt-4">
+        <div class="card">
+            <div class="card-header pb-0 px-3">
+                <h6 class="mb-0">Sözleşme</h6>
+            </div>
+            <div class="card-body pt-4 p-3">
+                <ul class="list-group">
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section pageFooterScript{
+
+    <script>
+
+        function AddNewCustomer() {
+            var newCustomer = {
+                CustomerTitle: $('#customerTitle').val() ,
+                CustomerOfficialName: $('#customerOfficial').val(),
+                CustomerJobType: $('#customerJobType').val(),
+                CustomerWebSite: $('#customerWebSite').val(),
+                AddressDetail: $('#customerAddress').val(),
+                CustomerDesription: $('#customerDescription').val(),
+                CustomerPhone: $('#customerPhone').val(),
+                CustomerEmail: $('#customerMail').val()
+
+            };
+            console.log(newCustomer);
+            $.ajax({
+                url: '@Url.Action("AddNewCustomer" , "BackSide")',
+                type: 'POST',
+                data: { newCustomer: newCustomer },
+                success: function (data) {
+                    if (data.success) {
+                        $('#modalCloseBTN').click();
+                        ModelContentRemove();
+                        GetPotantionalCustomerCount();
+                        swal({
+                            title: data.resText,
+                            icon: "success",
+                            button: "Kapat",
+                        });
+                    } else {
+                        swal({
+                            title: data.resText,
+                            icon: "Error",
+                            button: "Kapat",
+                        });
+                    }
+                },
+                error: function (data) {
+
+                    swal({
+                        title: data.resText,
+                        icon: "Error",
+                        button: "Kapat",
+                    });
+                }
+
+            });
+
+        }
+
+        function ModelContentRemove() {
+            $('#customerTitle').val('');
+            $('#customerOfficial').val('');
+            $('#customerJobType').val('');
+            $('#customerWebSite').val('');
+            $('#customerAddress').val('');
+            $('#customerDescription').val('');
+            $('#customerPhone').val('');
+            $('#customerMail').val('');
+        }
+
+        function GetPotantionalCustomerCount() {
+            const totalPotantialCustomer = document.getElementById('totalPotantialCustomer');
+            $.ajax({
+                url: '@Url.Action("PotantionalCustomer" , "BackSide")',
+                type: 'Get',
+                success: function (data) {
+                    if (data.success) {
+                        $('#AddedCustList').empty();
+                        totalPotantialCustomer.innerHTML = data.count;
+                        console.log(data.customerList);
+                        data.customerList.forEach(item => {
+                            $('#AddedCustList').append(CreateHtmlCard(item.customerTitle, item.customerOfficialName, item.customerJobType, item.customerEmail, item.customerWebSite));
+                            //console.log(CreateHtmlCard(item.customerTitle, item.customerOfficialName, item.customerJobType, item.customerEmail, item.customerWebSite));
+                        });
+                    } else {
+                        swal({
+                            title: data.resText,
+                            icon: "Error",
+                            button: "Kapat",
+                        });
+                    }
+                },
+                error: function (data) {
+                    swal({
+                        title: data.resText,
+                        icon: "Error",
+                        button: "Kapat",
+                    });
+                }
+
+            });
+
+        }
+
+        $(function () {
+            GetPotantionalCustomerCount();
+        });
+
+        function CreateHtmlCard(customerTitle, customerOfficialName, customerJobType, customerEmail, customerWebSite) {
+
+            var html = "<li class=\"list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg\">" +
+                "<div class=\"d-flex flex-column\">" +
+                "<h6 class=\"mb-3 text-sm\">" + customerTitle + "</h6>" +
+                "<span class=\"mb-2 text-xs\">Yetkili : <span class=\"text-dark font-weight-bold ms-sm-2\">" + customerOfficialName + "</span></span>" +
+                "<span class=\"mb-2 text-xs\">Sektör : <span class=\"text-dark ms-sm-2 font-weight-bold\">" + customerJobType + "</span></span>" +
+                "<span class=\"text-xs\">Web Site : <span class=\"text-dark ms-sm-2 font-weight-bold\">" + customerWebSite + "</span></span>" +
+                "<span class=\"text-xs\">E-Posta : <span class=\"text-dark ms-sm-2 font-weight-bold\">" + customerEmail + "</span></span>" +
+                "</div>" +
+                "<div class=\"ms-auto text-end\">" +
+               // "<a class=\"btn btn-link text-danger text-gradient px-3 mb-0\" href=\"javascript:;\"><i class=\"material-icons text-sm me-2\">delete</i>Delete</a>" +
+               // "<a class=\"btn btn-link text-dark px-3 mb-0\" href=\"javascript:;\"><i class=\"material-icons text-sm me-2\">edit</i>Edit</a>" +
+                "</div>" +
+                "</li>";
+
+
+
+            var html2 = "<li class=\"list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg\"> " + customerTitle +"</li>";
+            return html;
+
+        }
+
+
+
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+}
