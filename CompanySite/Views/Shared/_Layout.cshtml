@@ -88,7 +88,7 @@
                         <div class="col">
                             <nav class="navbar navbar-expand-lg">
                                 <a class="navbar-brand logo mb-0" href="@Url.Action("Index","Home")">
-                                    <img class="img-fluid" src="~/images/logo.png" alt="">
+                                    <img class="img-fluid" src="~/images/opalfa_png1.png" alt="">
                                 </a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                     <span></span>
@@ -105,17 +105,17 @@
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Ürünler ve Hizmetler</a>
                                             <ul class="dropdown-menu">
-                                                <li class="dropdown-submenu">
+                                               @* <li class="dropdown-submenu">
                                                     <a class="dropdown-item " href="@Url.Action("Packages","Home")">E-Ticaret Paketleri</a>
-                                                </li>
-                                                @*<li class="dropdown-submenu">
-                                                    <a class="dropdown-item " href="#">E-Katalog</a>
-                                                </li>
-
-                                                <li class="dropdown-submenu">
-                                                    <a class="dropdown-item " href="#">Sektörel Çözümler</a>
-
                                                 </li>*@
+                                                <li class="dropdown-submenu">
+                                                    <a class="dropdown-item " href="@Url.Action("ProcessManagement","Home")">İş Süreçleri Yönetimi</a>
+                                                </li>
+                                                
+                                                <li class="dropdown-submenu">
+                                                    <a class="dropdown-item " href="@Url.Action("TechnicalService","Home")">Teknik Servis Yönetimi</a>
+
+                                                </li>
                                             </ul>
                                         </li>
                                         <li class="nav-item dropdown">
@@ -129,10 +129,10 @@
                                                 </li>*@
                                             </ul>
                                         </li>
-                                        <li class="nav-item dropdown">
+                                        @*<li class="nav-item dropdown">
                                             <a class="nav-link" href="@Url.Action("Blog","Home")">Blog</a>
 
-                                        </li>
+                                        </li>*@
                                         <li class="nav-item dropdown">
                                             <a class="nav-link" href="@Url.Action("Contact","Home")">İletişim</a>
                                         </li>

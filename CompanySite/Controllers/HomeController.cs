@@ -28,6 +28,14 @@ namespace CompanySite.Controllers {
         {
             return View();
         }
+        public IActionResult ProcessManagement()
+        {
+            return View();
+        }
+        public IActionResult TechnicalService()
+        {
+            return View();
+        }
 
         public IActionResult Packages ()
         {

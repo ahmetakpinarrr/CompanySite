@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\90538\\source\\repos\\CompanySite\\CompanySite\\CompanySite.csproj": {}
+    "C:\\Users\\ahmet akpınar\\Desktop\\çalışmalar\\kurumsal\\CompanySiteV2\\CompanySite\\CompanySite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\90538\\source\\repos\\CompanySite\\CompanySite\\CompanySite.csproj": {
+    "C:\\Users\\ahmet akpınar\\Desktop\\çalışmalar\\kurumsal\\CompanySiteV2\\CompanySite\\CompanySite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\90538\\source\\repos\\CompanySite\\CompanySite\\CompanySite.csproj",
+        "projectUniqueName": "C:\\Users\\ahmet akpınar\\Desktop\\çalışmalar\\kurumsal\\CompanySiteV2\\CompanySite\\CompanySite.csproj",
         "projectName": "CompanySite",
-        "projectPath": "C:\\Users\\90538\\source\\repos\\CompanySite\\CompanySite\\CompanySite.csproj",
-        "packagesPath": "C:\\Users\\90538\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\90538\\source\\repos\\CompanySite\\CompanySite\\obj\\",
+        "projectPath": "C:\\Users\\ahmet akpınar\\Desktop\\çalışmalar\\kurumsal\\CompanySiteV2\\CompanySite\\CompanySite.csproj",
+        "packagesPath": "C:\\Users\\ahmet akpınar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ahmet akpınar\\Desktop\\çalışmalar\\kurumsal\\CompanySiteV2\\CompanySite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\90538\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ahmet akpınar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,7 +69,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -81,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
